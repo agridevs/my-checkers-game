@@ -1,0 +1,26 @@
+import React from 'react';
+
+const Controls = ({ variant, onVariantChange, variants }) => {
+  return (
+    <div className="flex flex-col items-center gap-4">
+      <div className="flex gap-4">
+        {variants.map((v) => (
+          <button
+            key={v.name}
+            onClick={() => onVariantChange(v)}
+            className={`px-4 py-2 rounded ${
+              variant.name === v.name
+                ? 'bg-blue-500 text-white'
+                : 'bg-gray-200 hover:bg-gray-300'
+            }`}
+          >
+            {v.name}
+          </button>
+        ))}
+      </div>
+      <div className="text-sm text-gray-600 mt-4">{variant.description}</div>
+    </div>
+  );
+};
+
+export default Controls;
